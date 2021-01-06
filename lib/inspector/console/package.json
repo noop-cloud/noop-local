@@ -17,7 +17,7 @@
     "@vue/cli-plugin-vuex": "^4.5.9",
     "@vue/cli-service": "^4.5.9",
     "@vue/eslint-config-standard": "^5.1.2",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "bootstrap-vue": "^2.20.1",
     "content-type": "^1.0.4",
