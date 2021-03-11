@@ -1,9 +1,9 @@
 {
   "name": "noop-local",
   "bin": {
-    "noop": "./cli.js"
+    "noop": "cli.js"
   },
-  "version": "1.0.44",
+  "version": "1.0.45",
   "description": "Noop Local Development Environment",
   "repository": {
     "type": "git",
