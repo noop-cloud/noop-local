@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Checkout Noop Local Repo
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
       - name: Install and Build Inspector Console, Publish to NPM
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '12'
+          node-version: '14'
           registry-url: 'https://registry.npmjs.org'
+      - name: Update NPM Version
+        run: npm i -g npm@latest
       - run: npm run ci-console
       - run: npm run build-console
       - run: npm publish
