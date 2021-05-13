@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
 
 const runCommand = require('./lib/commands/run')
 const inspectCommand = require('./lib/commands/inspect')
@@ -6,7 +8,7 @@ const resetCommand = require('./lib/commands/reset')
 const routeCommand = require('./lib/commands/route')
 // const connectCommand = require('./lib/commands/connect')
 
-const yargs = require('yargs')
+const argv = yargs(hideBin(process.argv))
   .usage('$0 <command> [options]')
   .help('help').alias('help', 'h')
   .version('version', `noop-local v${require('./package.json').version}`).alias('version', 'v')
@@ -92,15 +94,8 @@ const yargs = require('yargs')
     }
   })
   .demandCommand(1, 'You need at least one command before moving on')
-  .strictOptions()
-
-const commands = yargs.getCommandInstance().getCommands()
-const argv = yargs.argv
-
-if (!commands.includes(argv._[0])) {
-  yargs.showHelp()
-  console.log(`\nUnknown command: ${argv._[0]}`)
-}
+  .strict()
+  .argv
 
 if (argv.verbose || process.env.DEBUG === 'true') console.log('CLI arguments:', argv)
 
