@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "compression": "^1.7.4",
     "express": "^4.17.1",
+    "express-static-gzip": "^2.1.1",
     "morgan": "^1.10.0"
   }
 }

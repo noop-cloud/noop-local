@@ -1,5 +1,6 @@
 const expressWs = require('express-ws')
 const express = require('express')
+const compression = require('compression')
 const fetch = require('node-fetch')
 
 class DiagnosticsInterface {
@@ -11,6 +12,7 @@ class DiagnosticsInterface {
 
   init () {
     this.app.use(express.json())
+    this.app.use(compression())
     expressWs(this.app)
     this.app.ws('/_noop', (ws, req) => {
       const requestHandler = (request) => ws.send(JSON.stringify(request))
