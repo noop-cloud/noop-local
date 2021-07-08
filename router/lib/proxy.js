@@ -1,6 +1,5 @@
 const https = require('https')
 const express = require('express')
-const compression = require('compression')
 const Events = require('events')
 const http = require('http')
 const zlib = require('zlib')
@@ -19,7 +18,6 @@ class Proxy extends Events.EventEmitter {
 
   init () {
     this.app.use(express.json())
-    this.app.use(compression())
     this.routes.filter((route) => {
       if (this.internal) return true
       if (route.internal) return false
